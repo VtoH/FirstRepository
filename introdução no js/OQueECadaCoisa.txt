@@ -1,0 +1,69 @@
+TIPOS PRIMITIVOS
+
+String: Cadeia De Caracteres
+Number: Representa TODO tipo de numero, negativo, positivo ou com ponto
+Boolean: tem apenas 2 valores true ou false (tendo tbm os trusthy e os falsy)
+Undefined:uma variavel que não foi definida
+Null:o valor E DEFINIDO como inexistente(diferente de undefined que simplesmente não e definido)
+Symbol: retorna um valor do tipo símbolo 
+
+typeof Null  //object (bug no ECMASscript, deveria ser null)
+typeof undefined // undefined
+undefined === null // falso
+undefined  == null // verdadeiro
+
+=== compara o conteudo e o tipo
+== compara apenas o conteudo
+
+Por que tudo no JS e considerado um Objeto(quase tudo):
+o JS e escrito em cima do modelo de POO (Programação Orientada Objeto) logo coisas como ate os tipos primitivos se comportam 
+como objetos
+EXM: "uma string qualquer".lenght ele me retornaria o numero 19 por causa do .lenght seguido da string
+e se eu fazer da seguinte forma:
+var qualquer = {AlgumaCoisa: 'uma string qualquer'}
+
+console.log(qualquer.AlgumaCoisa.length) 
+
+tambem me retornaria o numero 19
+logo vemos que mesmo sem ser ter sido definido como um objeto o primeiro string ainda sim seria considerado um objeto
+
+Resumidamente:
+para chamar alguma propriedade de algum objeto e usado o . e como a maioria das coisas tambem são asim nas outras formas
+elas são consideradas objetos
+outro exemplo com Number:
+console.log((100).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL' }))
+(me retornaria R$ 100,00)
+onde novamente eu uso um tipo primitivo mais o trato como um objecto
+
+As Exceções são:
+Null e Undefined
+por exemplo usar o Null.prototype ou Undefined.prototype resultaria em um erro dizendo que não foi possivel ler
+as propriedades de Null/Undefined
+
+Por que isso ocore? por causa dos objetos gerais por exemplo string e um objeto nativo do JS e pode sim ser modificado
+EXM:
+String.prototype.bold = function() {
+    console.log('batata')
+}
+
+'a'.bold()
+lhe retornaria undefined mais faria sua função e chamaria o "batata" no console
+e todos os objetos global pode ser visto usando por exemplo:
+number.prototype ou Boolean.prototype 
+que lhe mostraria o objeto global que pode ser modificado ou ate removido
+
+
+ARRAYS
+
+E uma lista de dadaos: logo Armazena dados de todos os tipos em um "grupo" (pode ser comparado com uma lista)
+E interavel: pode ser percorrida item por item e executar algum bloco de codigo
+A estrutura por indice e valor: Os indices começam no 0(ZERO)
+
+OBJETO
+
+Representa uma unidade: representa um carro, uma pessoa, um formulario e etc
+E Estruturado por chave e valor:
+    'Nome' : 'Vitinho'
+     Chave     Valor
+
+ Possui propriedades: as chaves e os valores
