@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //o que essa função lhe retorna e uma promisse ja fullfilada com o result de undefined:
+        async function teste() { 
+
+        }
+        //mais por que? por que o que o async faz e que quando voce o ultilza antes de definir function e que a mesma vai 
+        //lhe retornar uma promise
+        //e como retornar algo? usando o metodo return 
+
+        async function teste0() {  //e dessa forma o seu result sera igual ao seu return
+            return("👍") 
+}
+        //desparando erros:
+        async function teste1() { 
+            throw "erro ao executar tua parada mano"
+            return("👍")
+}
+ //e dessa forma o seu result sera igual ao throw porem seu estado sera o reject e sim vai causar um erro no console
+
+
+//de forma resumida e mesma coisa da promise so que feita d um geito bem mais clean sem precisar do resolve e do reject
+//comparando os 2:
+async function handleClick() { 
+    return("batata")
+}
+
+function handleClick0() {
+    return new Promise((resolve, reject) =>{
+        resolve("batata")
+    }) 
+}
+
+//obviamente o async e mais clean porem existe uma delimitação, o settimeout que da forma padrão não funciona no metodo
+//async 
+
+//como pode se ver nesse exemplo que nos gera um undefined e não se ocorre o que e esperado
+async function handleClick1() { 
+     setTimeout(()=>{
+        return("batata")
+    }, 5000)
+}
+
+//mais e se nos retornacemos o settimeout que ae nos iria retornar batata?
+async function handleClick2() { 
+    return setTimeout(()=>{
+        return("batata")
+    }, 5000)
+}
+//tambem não teriamos o que se e esperado
+
+//RESOLVENDO O PROBLEMA DO SET TIME OUT
+
+
+function sleep (ms) {
+    return new Promise (
+        resolve => {setTimeout(() => resolve(true), ms )}
+    )
+} 
+
+async function handleClick3() { 
+    await sleep(5000)
+    return ("😎👌")
+}
+//e dessa forma nos pegamos aquele codigo inteiro da forma padrão com o set time out e nos transformamos nisso ae
+//RESUMINDO o await pode ser usada em toda função async e oque ela faz e forçar essa promise a esperar outra coisa
+//acabar no exemplo a cima o que foi feito e que nos obrigamos a promise a esperar a função sleep acabar
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     fetch("https://jsonplaceholder.typicode.com/todos/1")
+    //o que esse fetch faz e pegar o
+     //objeto json POREM receber esse objeto não significa  que se nos recebermos ele como parametro
+     //como por exemplo
+        fetch("https://jsonplaceholder.typicode.com/todos/1").then((res)=>{ 
+            console.log(res) //então o que isso significa? significa que o metodo fetch faz e encapsular o
+            //res dentro de um objeto DO TIPO DELE que e algo que se pode se ver no console
+        })
+        //TENDO ACESSO A RESPOSTA
+        //dessa forma nos temos o objeto porem ainda não temos acesso a nossa data
+        fetch("https://jsonplaceholder.typicode.com/todos/1").then((res)=>{ 
+            const data = res.json //o res.json tambem e uma promise
+            console.log(data)
+         })
+
+         //tendo acesso ao data
+         fetch("https://jsonplaceholder.typicode.com/todos/1").then(async (res)=>{ 
+            const data0 = await res.json
+            console.log(data)
+         })
+         //qual o problema desse codigo? ele ficou meio ilegivel neh? e como nos concertamos isso? usando o chaining
+         //mais o que o chaining? e a forma de usar mais de um then criando uma especie de corrente entre eles
+         fetch("https://jsonplaceholder.typicode.com/todos/1").then(res => res.json())
+                                                              .then(data => console.log(data))
+                                //e dessa forma temos o mesmo resultado do metodo anterior
+
+    </script>
+</body>
+</html>

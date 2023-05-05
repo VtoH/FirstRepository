@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //qual o problema desse estilo de promise? ela não esta encapsulada logo se voce tiver 84 promises
+        //elas serão iniciadas todas ao mesmo tempo o que normalmente não e o que queremos
+        //e tambem não e toda vez que vmaos querer iniciar o desenvolvimento com uma promise sendo processada
+        //logo de inicio
+        const teste = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve (`123`)
+    }, 5000)
+})
+
+
+    //ENCAPSULANDO EM UMA FUNCTION
+
+    function handleClick () {
+        return  new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve (`123`)
+    }, 5000)
+    })
+        }
+
+        function clickHandle () {
+        return  new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject (`123`)
+    }, 5000)
+    })
+        }
+
+
+        const teste0 = handleClick()
+
+        //o dessa forma quando nos chamarmos o teste0 e ae sim vai contar os 5 segundos e então se dara inicio
+        //ao promise, porem a uma curiosidade se voce usar (apos os 5 seg)123 === result dara false e se voce ultilizar
+        //123 == result tambem gerara um false por que para que nos tenhamos acesso ao valor de uma promisse nos teriamos 
+        //de estar ultilizando o metodo then da seguinte forma:
+
+        const teste1 = handleClick().then(() => {
+            console.log(`finalizado`)
+        }) //o then recebe uma função de callback que so sera resolvida quando o estado da promise for fullfiled
+        //se voce notar no teste 1 o que acontece e que a promisse agora tem o resultado de undefined mais por que?
+        // por que o valor de result vai ser definido DENTRO do metodo then o que e uma parada muito louca
+
+        const teste2 = handleClick().then(res => {
+            console.log(res === 123) //e dessa forma o resultado vai ser true mais ainda sim o valor sera undefined
+            console.log(`finalizado`)
+        }) 
+
+        //então como a gente vai fazer pra nossa promisse não retornar como undefined?
+        //na verdade e bem simples um dos metodos e so voce ultilzar por exemplo o metodo return res que ae 
+        //ele vai retornar o valor de res e vai deixar d ser undefined
+        const teste3 = handleClick().then(res => {
+            console.log(res === 123) 
+            console.log(`finalizado`)
+            return res
+        })
+        //então sabemos agora que o then vai ser executado asim que essa promise finalizar e o seu valor de retorno
+        //do bloco de codigo do THEN e que o valor de res e que vai c equivaler a result
+        //mais sim e possivel retornar qualquer coisa
+        const teste4 = handleClick().then(res => {
+            console.log(res === 123) 
+            console.log(`finalizado`)
+            return batata
+        })
+
+        //mais e se o metodo no lugar de result for um reject?
+        const teste5 = clickHandle().then(res => {
+            console.log(res === 123) 
+            console.log(`finalizado`)
+            return batata
+        })  //so o que ele te retorna e um erro mais por que?
+        //por que o then e para promises finalizadas como result para as reject nos usamos o metodo catch da seguinte forma:
+
+        const teste6 = clickHandle().then(res => {
+            console.log(res === 123) 
+            console.log(`finalizado`)
+            return batata
+        }).catch(err => {
+            console.log(`Houve um erro`)
+            console.log(err)
+        }) //lembrando que esse bloco de codigo lhe retorna 123 por que e o resultado da rejeição la na nossa função
+        
+
+        
+    </script>
+</body>
+</html>

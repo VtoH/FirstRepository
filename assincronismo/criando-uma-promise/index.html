@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //o Promise e um objeto global no js que recebe uma função de call com 2 parametros o resolve e o reject
+        const teste = Promise((resolve, reject) => {
+
+        })
+        //se voce chamar a const teste no console voce pode ver que o que ele lhe retorna e um pending
+        //por que? por que uma promise sempre tem 3 estados:pendente resolvida e rejeitada por causa disso
+        //ela esta em pending ja que em nem um momento ela foi resolvida ou rejeitada
+
+        //se voce tentar acessar rapidamente esse teste0 ele vira como pending mais depois de 5 segundos ela virara
+        //fullfiled(como PromiseState) lhe dizendo que a promise foi finalizada
+        //e lhe retornando o resolve do codigo como PromiseResult
+        const teste0 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve (`😎👌`)
+            }, 5000)
+        })
+
+        //rejeitnado uma promise
+        const teste1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject (`🛑🤚`)
+            }, 5000)
+        })
+        //dessa forma apos os 5 segundos o que aparecera no seu console e um erro e o PromiseState vira como
+        //rejected e o PromiseResulta vai ser o valor do reject
+
+        //e se eu resolver e rejeitar uma promisse ao mesmo tempo?
+        const teste2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve (`😎👌`)
+                reject (`🛑🤚`)
+            }, 5000)
+        })
+        //como pode se ver o no seu console e que não apareceu nem um erro e apos os 5 segundos o PromiseResult
+        //foi o valor de revolse logo o que se pode imaginar e
+        //resolve sempre prevalece? NÃO o que prevalece e o que esta acima
+
+        const teste3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject (`🛑🤚`)
+                resolve (`😎👌`)
+            }, 5000)
+        })
+        //como pode ser no codigo acima que quem prevaleceu foi o reject
+
+        //NÃO E POSSIVEL REDEFINIR O VALOR DE UMA PROMISE DEPOIS QUE ELA SAI DE PENDING ELA TERA AQUELE VALOR DE RESOLVED
+        //OU REJECTED E NÃO A O QUE SE POSSA FAZER JA QUE AQUELA PROMEÇA FOI CUMPRIDA OU REJEITADA
+    </script>
+</body>
+</html>

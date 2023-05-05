@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //base da api
+        const baseUrl = "https://jsonplaceholder.typicode.com" //disponivel gratuitamente na web 
+        //ela e uma api de teste
+
+        //todos/1 ...2 ...3 etc são os endpoints
+
+        //NÃO E TODO DO PORTUGUES E TO DO (c pode traduzir como ,tarefa ou a se fazer)
+
+
+        async function getTodos() {
+            const firstTodo = 
+            await fetch(`${baseUrl}/todos/1`).then (res => res.json())
+
+            //console.log(firstTodo) 
+            //e possivel ver descomentando o codigo a cima para ver o objeto
+            //o fetch pede uma requizição http  e o rest converte para .json e a função do await e fazer com
+            //que o resultado va para o firstTodo
+
+            
+            const secondTodo = 
+            await fetch(`${baseUrl}/todos/2`).then (res => res.json())
+
+            const thirdTodo = 
+            await fetch(`${baseUrl}/todos/3`).then (res => res.json())
+
+            return [firstTodo, secondTodo, thirdTodo]
+        }
+        
+        //pode ser notado que ela demora um pouco pra se fazer mais por que? por que todos os metodos são buscados um apos
+        //o outro o que faz demorar um pouco mais e possivel fazer isso de maneira assincrona? SIM
+        const todos = getTodos()
+        
+        //ASSINCRONA
+        //e dessa forma tudo ocorre de maneira muito mais rapida ja que estão sendo feitas ao mesmo tempo
+        //e outra vantagem e que não importa o numero de todos que voce tenha no geral vai custar o mesmo tempo ter
+        //menos ou mais ja que elas são feitas ao mesmo tempo
+        async function getTodos0() { 
+            const promises = Promise.all([
+                fetch(`${baseUrl}/todos/1`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/2`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/3`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/4`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/5`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/6`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/7`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/8`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/9`).then (res => res.json()),
+                fetch(`${baseUrl}/todos/10`).then (res => res.json()),
+                //se voce passar um todo que não existe o que ele vai fazer e lhe retornar um erro porem o seu array de
+                //todos ainda vai exister so que o todo inexistenten vira como um objeto vazio
+                //exemplo:
+                //fetch(`${baseUrl}/adwupowaduiodwauig`).then (res => res.json()),
+            ])
+            return promises
+            //imagina ter que esperar 20segs pra esse codigo da certo, se ta maluco
+        }
+    
+        const todos0 = getTodos0()
+        
+
+    </script>
+</body>
+</html>
