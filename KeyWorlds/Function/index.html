@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    function bomdia () {
+        console.log(this) // this e uma palavra chave reservada que sempre se referencia pelo contexto
+    }
+    
+    const person = { //aqui se voce chamar o greet ele lhe trara o objeto inteiro por causa da referencia que seria o objeto person.greet
+        name: "Vitin",
+        greet: function abc () {//esse function pode ser retirado e funcionara do mesmo geito abreviando o codigo
+            console.log(this)
+            return 'batata' //sem usar o return o que o objeto o retorna e um undefined
+        }
+    }
+
+    function AnosFaltandoParaOsDezoito (age) {
+        return age - 18
+    }
+
+    const AnosFaltando = AnosFaltandoParaOsDezoito(15) //aqui esta função simplesmente usa a função passada trocando o age por 15
+    //se este 15 estivese em branco ele apenas seria uma copia da function 
+    </script>
+</body>
+</html>
+
+

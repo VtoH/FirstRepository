@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //agendando tarefas com intervalos especificos de tempos
+        
+        setTimeout(() => { //este metodo vai executar apenas UMA vez apos o periodo de tempo determinado
+            console.log(`executou`)
+        }, 5000) //o tempo e definido em milisegundos
+
+        setInterval(() => { //ja neste metodo a cada 5 segundos aparecera um exec no console
+            console.log(`exec`)
+        }, 5000)
+
+        // para limitar o interval basta combinalo com o timeout da seguinte forma
+        const interval = setInterval(() => {
+            console.log('Cleitin')
+        }, 5000)
+        
+        setTimeout(()=> {
+            clearInterval(interval)
+        }, 20000)
+        //desta forma o codigo so se repitira 4 vezes ja que ele logara no console cleitin a cada 5 segundos
+        //e o settimeout não o deixa mais ser executado dps de 20 segundos
+        //e isso tambem funciona com o timeout da seguinte forma
+        const timeout = setTimeout(() => {
+            console.log('Cleitin')
+        }, 5000)
+        
+        setTimeout(()=> {
+            clearInterval(interval)
+        }, 2000)
+        //desta forma ele seria cancelado antes mesmo de executar sua função
+    </script>
+</body>
+</html>

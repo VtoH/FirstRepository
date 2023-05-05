@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function name () { // isso e uma function DECLARARION
+
+       }
+
+       const name = function (){ //isso e uma function EXPRESSION
+
+       }
+
+       const name = () => { //isso e uma ARROW function   
+}
+        const remainingYears = (age) => 18 - age // pode ser abreviado desta forma a ARROW function
+        // na arrow function se o retorno e IMEDIATO e desnecessario usar o return e abrir o bloco {}
+        //const remainingYears = (age) => console.log('batata') 18 - age  neste exemplo daria um erro
+        //const remainingYears = (age) => {console.log('Batata')18 - age } aqui ele faria o console.log mais me retornaria o 18 - age como undefined
+        
+        //as arrows functions o this não e funcional ja que por exemplo:
+        const me = {
+            name: 'vitin',
+            age: 12,
+            greet ()  {  //aqui por nãp ser uma arrow function ele me retornaria oobjeto como contexto
+                console.log(this) 
+            }
+        } 
+
+
+        const em = {
+            name: 'vitin',
+            age: 12,
+            greet: () => { //aqui por ser uma arrow function ele me retornaria o window que e um dos objetos globais primarios
+                console.log(this) //nem usando o .call ou o .apply (no console) e possivel usar o this na arrow function
+            }
+        } 
+
+    </script>
+</body>
+</html>

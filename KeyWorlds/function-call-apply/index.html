@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function soma (a, b) { //usando no console soma.call(me, 1, 2) ele lhe retornaria cleitin e o numero 3
+            console.log(this)  //onde a primeira coisa (me) se referencia ao contexto (pelo this) enqunato o 1 e o 2 são referenciados ao a e b
+            return a + b       //usando no console soma.apply o que ocorreria e que para ele funcionar como o .call voce deveria(me, [1, 2]) se não resultaria em um erro
+                              // pois ele espera os argumentos dentro de um unico array tendo que incapsular os argumentos dentro do array e ae sim ele funcionaria como o .call
+        }                     //o restante entre o .call e o .apply e igual
+
+        const me = {
+            name: 'cleitin'
+        }
+
+    </script>
+</body>
+</html>

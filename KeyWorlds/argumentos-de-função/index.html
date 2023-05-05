@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //A PALAVRA RESERVADA ARGUMENTS NÃO PODE SER ULTILIZADA DENTRO DE ARROW FUNCTION ISSO GERA EM UM ERRO
+        //os argumentos são os parametros passados a e b
+        function soma (a, b) { // aqui eles são nomeados como a e b, x e , batata e carne, etc
+            console.log(arguments)// aqui e possivel verificar como e funcionado e apesar de não ser um array e uma especie de 
+            //lista com os argumentos forcenidos
+            return a + b //aqui eles são chamados
+        }
+        function amos (a, b) { 
+            console.log(arguments[0], arguments[1]) //e aqui ele me faria o console.log do arguemnto 1 e 2 separados por espaço
+            return a + b 
+        }
+
+        //desta forma mesmo sem ter nomeado os argumentos e possivel chamalos e somalos como no primeiro exemplo
+
+        function soma0 () { 
+            return arguments[0] + arguments[1] 
+        }
+
+        const soma1 = (a, b) => a + b //o metodo soma ulsando arrow function
+        //se no console voce passar apenas um dos 2 argumentos ele lhe retornaria um NaN(Not a Number)
+
+        const soma2 = (a, b = 0) => a + b //desta forma e consertado o problema do NaN (se o problema fosse o b)
+        const soma3 = (a = 0, b) => a + b //desta forma e consertado o problema do NaN (se o problema fosse o a)
+        const soma4 = (a = 0, b = 0) => a + b //desta forma e consertado o problema do NaN (se o problema fosse o a e o b)
+         // e isto resolve o problema pois se o numero não for definido voce poe que por padrão ele seria 0 ou qualquer 
+         //outro valor desejado
+    </script>
+</body>
+</html>

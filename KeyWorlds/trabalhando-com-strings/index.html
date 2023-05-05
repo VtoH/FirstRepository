@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const name = "cleitin"
+        const age = 41
+
+        const setence = "ola meu nome é " + name + ' e eu tenho ' + age + ' anos.'
+        const setence0 = `ola meu nome é ${name} e eu tenho ${age} anos.`
+        console.log(setence)
+        console.log(setence2)
+
+
+        //com os ´´ e possivel manter a identação mais usando as "" ou '' voce não consegue
+        const html = `
+            <ul>
+                <li>
+                    ${name}
+                </li>
+                <li>
+                    ${age}
+                </li>
+            </ul>
+        `
+
+        const html0 = '\
+            <ul> \
+                <li>\
+                    ${name}\
+                </li>\
+                <li>\
+                    ${age}\
+                </li>\
+            </ul>\
+        '
+            console.log(html)
+            console.log(html0)
+    </script>
+</body>
+</html>

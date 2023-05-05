@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //se o resul estiver em cima de soma daria um erro, ja que soma ainda não seria declarada  
+        // MAIS se no lugar de uma arrow functions fosse apenas uma functions isso tambem funcionaria exemplos:
+
+        //DA CERTO
+        const soma = (a = 1,b = 5) => a + b
+        const resul = soma(1, 2)
+        console.log(resul)
+
+        //GERA UM ERRO
+        const resul0 = soma0(1, 2)
+        const soma0 = (a = 1,b = 5) => a + b 
+        console.log(resul0)
+
+        //DA CERTO
+        const resul1 = soma1(1, 2)
+        function soma1 (a = 1, b = 5) {
+            return a + b
+        }
+        console.log(resul1)
+
+        //DA CERTO
+        function soma2 (a = 1, b = 5) {
+            return a + b
+        }
+        const resul2 = soma1(1, 2)
+        console.log(resul2)
+
+        // e isso acontece por cuasa do hoinsting que faz parte do motor do JS que faz com que o exemplo da linha 25 a 29 funcione
+        //como o da linha 32 a 36 normalmente e isso e a resposta de por que alguns vezes o codigo da algum erro ou não
+    </script>
+</body>
+</html>
