@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //O MAP E PURO LOGO ELE NÃO AFETA A RAIZ DO CODIGO
+        //DIFERENÇA ENTRE O MAP E O FOR EACH:
+        
+        //em resumo os dois codigos fazem a mesma coisa
+        const fruits = [`manga`, `banana`, `morango`, `pera`]
+
+        fruits.map(fruit => {
+            console.log(fruit.toUpperCase)
+        })
+
+         
+        const fruits0 = [`manga`, `banana`, `morango`, `pera`]
+
+        fruits0.forEach(fruit => {
+            console.log(fruit.toUpperCase)
+        })
+        //mais por exemplo se estiver dentro de uma const?
+        //esse capitaFruit me retorna 3 undefined
+        const capitaFruit = fruits.map(fruit => {
+            console.log(fruit.toUpperCase())
+        })
+
+        //o capitaFruit0 me retorna apenas 1
+        const capitaFruit0 = fruits.forEach(fruit => {
+            console.log(fruit.toUpperCase())
+        })
+
+        //mais por que? apessar dos 2 metodos percorem todos os argumentos o map foi feito exatamente para
+        //REMAPEAR os argumentos
+        //RESUMINDO o que o map faz e criar um novo array com os arumentos passados de forma que não interfira em anda com
+        //os argumentos originais logo ele e um codigo PURO e como nos não estamos retornando nada e estamos usando o js
+        //eles são definidos como undefined
+
+        //agora se nos retornamos algo:
+        //usando o .map temos o resultado que nos queriamos
+        const RetornaFruit = fruits.map(fruit => {
+            return fruit.toUpperCase()
+        })
+
+        //usando o forEach continuamos tendo o retorno de um undefined
+        const RetornaFruit0 = fruits.forEach(fruit => {
+            return fruit.toUpperCase()
+        })
+    </script>
+</body>
+</html>

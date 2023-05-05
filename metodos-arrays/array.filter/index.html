@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const students = [
+            {name:`Cleitin`, Grade:8},
+            {name:`Jorgin`, Grade:2},
+            {name:`Fernandin`, Grade:9},
+            {name:`CuboNito`, Grade:6},
+            {name:`Perera`, Grade:4},
+        ]
+        //o que o metodo filter faz em resumo e filtrar o que se eh passado 
+        //ele trabalha com metodos bulianos logo ele trabalha com false e true então como sabemos ele pega
+        //os metodos e checa se ele e um truthy por exemplo
+        const reprovado = students.filter(pupil => {
+            return pupil.Grade < 6
+        })
+
+        const aprovado = students.filter(pupil => {
+            return pupil.Grade >= 6
+        })
+    </script>
+</body>
+</html>

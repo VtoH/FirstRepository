@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const convidados = [
+            {name:`Cleitin`, age:18},
+            {name:`Jorgin`, age:20},
+            {name:`Fernandin`, age:16},
+            {name:`Maria`, age:19},
+            {name:`Claudia`, age:24},
+        ] 
+        
+        const convidados0 = [
+            {name:`Cleitin`, age:16},
+            {name:`Jorgin`, age:2},
+            {name:`Fernandin`, age:14},
+            {name:`Maria`, age:16},
+            {name:`Claudia`, age:4},
+        ] 
+        //existem maiores de idade na lista?
+        const eAdulto = convidados.some(convidado => convidado.age >=18)
+        //o resultado desta const e true ja que sim existem convidados com mais de 18 anos
+        const eAdulto0 = convidados0.some(convidado => convidado.age >=18)
+        //ja neste me retornaria um false ja que na segunda lista não existe ninguem com mais ou igual a 18 anos
+        //porem se eu quiser saber c existe alguem com menos de 18 o resultado sera um true:
+        const eAdulto1 = convidados0.some(convidado => convidado.age <=18)
+
+
+        //todos são maiores de idade na lista?
+        const TodoMundoEAdulto = convidados.every(convidado => convidado.age >=18)
+        //esse resultado me gera um false ja que existe fernandinho que tem apenas 16 anos
+        //mais e se eu usasse na segunda lista para saber se todos sao menores de idade me geraria um true:
+        const NinguemEAdulto = convidados0.every(convidado => convidado.age <=18)
+
+    </script>
+</body>
+</html>

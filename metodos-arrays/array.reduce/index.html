@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const students = [
+            {name:`Cleitin`, Grade:8},
+            {name:`Jorgin`, Grade:2},
+            {name:`Fernandin`, Grade:10},
+            {name:`CuboNito`, Grade:6},
+            {name:`Perera`, Grade:5},
+        ]
+        //somando a nota dos alunos sem usar o metodo reduce:
+        let GradeTotal = 0
+        students.forEach(pupil => GradeTotal += pupil.Grade)
+        //qual o problema desse codigo? esse codigo e IMPERATIVO logo ele muda a referencia raiz do codigo 
+        //que e algo que naturalmente não queremos
+        //mais o que isso afeta de verdade? um exemplo se voce chamar esse GradeTotal duas vezes como no exemplo
+        //a seguir:
+        let GradeTotal0 = 0
+        students.forEach(pupil => GradeTotal += pupil.Grade)
+        students.forEach(pupil => GradeTotal += pupil.Grade)
+        //seu resultado deixa de ser 31 e passa a ser 62
+
+        //USANDO O REDUCE
+        //no metodo reduce nos passamos 2 parametros uma function(no caso uma arrow function) e um valor inicial no caso o 0
+        //sendo que a function sera usada de callback
+        const ClassRoomTotalPoints = students.reduce(
+            (prev, Atual) =>{
+                console.log(prev)
+                console.log(Atual)
+                return prev + Atual.Grade
+
+        }, 0)
+        //resumindo o prev e o 0 que vai sendo somado com o Atual.Grade que e a nota dos alunso 
+        //O PREV E O 0 E O ATUAL SÃO AS INFORMAÇÕES DOS ALUNOS
+        //SEMPRE E VAI SER NECESSARIO RETORNAR UM VALOR
+        //E O VALOR RETORNADO SERA O VALOR DE PREV DA PROXIMO INTERAÇÃO
+
+    </script>
+</body>
+</html>

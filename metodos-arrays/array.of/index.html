@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //formas de criar um array
+        const Array = [1, 2, 3]
+        const Array0 = new Array(1, 2, 3)
+        //o resultado e o mesmo
+        //POREM
+        const Array1 = new Array(6)
+        array.forEach(() => console.log(`a`))
+        //se usarmos esse metodo com um unico numero o que ocorre e que ele me passaria um array com um length de 6
+        //porem todos os valores vazios logo esse console.log não vai gerar nem um a
+        //e por que foi mostrado isso? por que e possivel usar o metodo array.of
+        const Array2 = Array.of(6)
+        //o que esse Array nos retorna e uma lista com o lenght de 1 e no indice 0 um 6 e sim e possivel passar infinitos valores
+        //por exemplo:
+        const Array3 = Array.of(6, 2, 3, 4)
+        //o que ele nos retorna e um array com lenght de 4 e indices seriam: 0=6 1=2 2=3 e o 3=4
+
+        //RESUMO: temos essas 3 formas de criar arrays porem o new Array tem aquela limitação de quando e passado
+        //apenas um numero como parametro
+        const Array4 = new Array(`Cleitin`) //como pode ser visto se o array for uma string não temos problemas
+    </script>
+</body>
+</html>

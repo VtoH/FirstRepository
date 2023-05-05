@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //por que o seguinte codigo gera um erro? por que como ja foi visto o arguments apesar de ser uma lista
+        //ele não e um array sendo asim não existe o metodo forEach
+        function crumpimenta () {
+            console.log(arguments)
+            arguments.forEach(argument => {
+                console.log(`Hello ${argument}`)
+            });
+        }
+
+
+        
+        //como o arguments apesar de não ser um array ele e interavel então conseguimos fazer uma constante que recebe
+        //seus valores sendo um array
+        function crumpimenta0 () {       //o que esta function faz e retornar cada um dos itens passados e acresentar um ! 
+                                        //ela e chamada de função de map logo ela vai ser executada para cada um dos argumentos
+            const args = Array.from(arguments, function (name) {
+                return name + `!`  //e possivel mudar a ordem para que o ponto de exclamação apareça antes da exclamação 
+            })                      // e so inverter a ordem: return `!` + name       
+            args.forEach(argument => {
+                console.log(`Hello ${argument}`)
+            });
+        }
+    </script>
+</body>
+</html>

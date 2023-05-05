@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         const students = [
+            {name:`Cleitin`, Grade:8},
+            {name:`Jorgin`, Grade:2},
+            {name:`Fernandin`, Grade:9},
+            {name:`Fernandin`, Grade:10},
+            {name:`CuboNito`, Grade:6},
+            {name:`Perera`, Grade:4},
+        ]
+
+        //esse metodo find asim como o metodo filter ele expera que voce retorne um valor FALSY ou um valor TRUEFY
+        //que são diferentes de true e false não e necessario ser exatamente um booleano
+        //pode ser por exemplo 0 e 1, string com alguma coisa ou sem etc...
+        const alunoEspecifico = students.find((pupil) => {
+            if (pupil.name === `Cleitin`){
+                return true //true e um trufy asim como false e um falsy mais ainda sim não são a mesma coisa
+            }
+            cossole.log(pupil)
+        })
+
+        //o que esse codigo faz e pegar o aluno espefico (ou o objeto especifico) e trazer suas informaçoes mais 
+        //o metodo filter ja não fazia isso?
+        const alunoEspecifico0 = students.filter((pupil) => {
+            if (pupil.name === `Cleitin`){
+                return true 
+            }
+            cossole.log(pupil)
+        })
+        //mais ou menos, usando os 2 codigos acima no console voce vai perceber que: enquanto o metodo alunoEspecifico nos traz
+        //somente o objeto o metodo alunoEspecifico0 nos traz uma LISTA com os dados do objeto
+
+        //temos outras mudanças como por exemplo:
+        //o metodo find encontra um iten em especifico enquanto o metodo filter retorna ZERO ou MAIS itens especificos
+        //outra mudança:
+
+        const alunoEspecifico1 = students.filter((pupil) => {
+            if (pupil.name === `Fernandin`){
+                return true 
+            }
+            cossole.log(pupil)
+        })
+
+        const alunoEspecifico2 = students.find((pupil) => {
+            if (pupil.name === `Fernandin`){
+                return true 
+            }
+            cossole.log(pupil)
+        })
+
+
+        //se voce chamar o alunoEspecifico1 voce vai notar que os 2 Fernandinhos aparecem (os 2 objetos)
+        //porem se voce chamar o alunoEspecifico2 o que pode ser notado e que apenas o primeiro fernandinho aparece
+        //ja que o metodo find so percorre o codigo ate achar o PRIMEIRO objeto que satisfaça essa condição
+        //o que pode ser uma vantagem se voce tem milhares de objetos e so quer um em especifico ou uma desvantagem se o seu casso
+        //e ter a informação de todos os fernandinhos
+
+        //uma coisa importante a se freezar e que se voce passar algo que ele não consiga encontrar ele vai lhe retornar um undefined
+        //como pode ser visto no exemplo a seguir:
+        const alunoEspecifico3 = students.find((pupil) => {
+            if (pupil.name === `Vitin`){
+                return true 
+            }
+            cossole.log(pupil)
+        })
+    </script>
+</body>
+</html>
