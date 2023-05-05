@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          
+          class Human { 
+            fome = true  
+            name
+            age
+            sex
+
+            //o constructor e um metodos que sempre sera executado
+            constructor (props) {  //o mais interesante do constructor e recuperar os parametros por ele ou definilo como um objeto e fazer da seguinte forma:
+             //para tornar obrigatorio que o objeto tenha as informações usamos:
+               if(!props.name, !props.sex, !props.age)
+               throw console.error("AS INFORMAÇOES SÃO OBRIGATORIAS E OBRIGATORIO"); 
+               
+                this.name = props.name
+                this.sex = props.sex
+                this.age = props.age
+
+                console.log(`${props.name} é zika`)
+            }
+
+            comer () { 
+                this.fome = false
+            }
+        }
+        const person = new Human ({
+            name: `vitin`,
+            age: 34,
+            sex: `rocknroll`
+        })
+        const person0 = new Human ({
+            name:'cleitin',
+            age:31,
+            sex:`male`
+        })
+        const person1 = new Human ({
+            name:'fernandin',
+            age:31,
+            sex:`muito`})
+    </script>
+</body>
+</html>

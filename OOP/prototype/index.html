@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          class Human { //se voce usar Human.prototype no console voce vera que a classe human no JS tbm e um objeto
+            fome = true  
+            acordado = true
+
+            comer () { 
+                this.fome = false 
+            }
+
+            dormir () {
+                this.acordado = false
+            }
+        }
+        //outra resalva e que se chamarmos o metodo dormir0 antes dele estar existindo ocorrera um erro
+        //como pode ser visto no exemplo abaixo
+        //ABRA O CONSOLE SEU ANIMAL
+        peron.dormir0()
+
+
+        // outra formar d fazer o metodo dormir e o seguinte:
+        Human.prototype.dormir0 = function() {  //dessa forma ele e injetado posteriormente pelo prototype e 
+            this.acordado = false // e por isso quando voce abrir o human.prototype no console voce vera que o dormir 0
+        }                         //e diferente do metodo dormir a alguns cuidado que tem d ce ter pois o this trabalha com o contexto
+                                  //e por isso uma arrow function não funciona direito
+
+            human.prototype.dormir1 = () => {
+                this.acordado = false  //desta forma se voce ultilizar no console person.dormir1 ele continuara como true
+        }                            // pois aqui foi ultilizado uma arrow function
+            
+        const person = new Human ()
+        
+
+        //por que ultilizar a seguinte forma de adicionar um metodo?
+        Array.prototype.dormir0 = function() { //esta forma e ultilizada para adionarmos metodos do JS moderno 
+            this.acordado = false // em navegadores antigos injetando diretamente os objetos dentro do metodo array
+                                //asim dando suporte para navegadores antigos o que e uma coisa muito especifica
+                                //ISTO E UM METODO IMPERATIVO TOME CUIDADO AO MECHER COM O PROTOTYPE
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //criando uma classe
+        class Human { //padrão e a primeira letra ser maiuscula de cada palavra com o nome da classe
+
+        }
+        const person = new Human ( //e asim person vira um objeto da classe human
+
+        )
+
+        //metodos em classes
+        class Human0 { 
+            fome = true  //esses metodos da classe são sempre refletidos nos objetos de sua classe
+
+            comer () { //e um metodo porem como isto e uma classe não podemos usar a palavra function mais funciona como uma
+                this.fome = false //este this se referencia ao OBJETO não a classe logo ele afeta o person 0 não o humano0   
+            }
+        }
+        //logo se no console for ultilizado o metodo person0.eat(); o que vai acontecer e que o fome de
+        //person0 vai se alterar para false e o person1 vai continuar como true
+        const person0 = new Human0 ()
+        const person1 = new Human0 ()
+
+
+    </script>
+</body>
+</html>

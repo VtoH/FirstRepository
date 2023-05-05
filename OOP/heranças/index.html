@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    class Animal { //passamos o sex de human para a classe pai animal
+        sex
+
+        constructor(props) {
+            props.sex = this.sex
+        }
+    }
+    class Human extends Animal {  //o que occore e que retiramos o sex de human e fizemos dele uma classe filho
+        //de animal 
+      fome = true  
+      name
+      age
+      //sex
+     
+      
+      constructor (props) {
+          super(props) //sem o metodo super ocorre um erro por causa do constructor da classe pai e o que ele faz
+          //e chamar o constructor da classe pai
+          this.name = props.name
+          this.age = props.age
+          //props.sex
+          console.log(`${props.name} é zika`)
+      }
+
+      comer () { 
+          this.fome = false
+      }
+  }
+  const person = new Human ({
+      name: `vitin`,
+      age: 34,
+      sex: `rocknroll`
+  })
+    </script>
+</body>
+</html>
