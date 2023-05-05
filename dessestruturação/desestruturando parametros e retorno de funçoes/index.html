@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //como melhorar esse codigo? transformando os parametros em um unico objeto
+        function createUser (name, age, email){
+            return {
+                name,
+                age,
+                contact:{ email }
+            }
+        }
+        const user = createUser (`Cleitin`, 32, `cleitinhow@mail.com`)
+        //ficou um pouquinho melhor mais ainda sim pode ser melhorado
+        function UserCreate (user) {
+            return {
+                name: user.name,
+                age: user.age,
+                contact:{ email:user.email }
+            }
+        }
+        const user0 = UserCreate ({
+            name:`Cleitin`,
+            age: 32,
+            email: `cleitinhow@mail.com`})
+        //mais se a gente dessestruturar este objeto ficaria da seguinte maneira
+        //e asim mesmo sem ter um objeto que encapsule todos os objetos eu consigo ter acesso a esses propriedades
+        //e recuperando elas no mesmo instante
+        function CreateUs3r ({name, age, email}) {
+            return {
+                name,
+                age,
+                contact:{ email }
+            }
+        }
+        const user1 = UserCreate ({
+            name:`Cleitin`,
+            age: 32,
+            email: `cleitinhow@mail.com`})
+    </script>
+</body>
+</html>

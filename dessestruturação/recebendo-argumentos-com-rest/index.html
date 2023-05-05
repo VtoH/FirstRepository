@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //o que e o rest? e mais ou menos o contrario do spread
+        //por exemplo c eu passar pra essa função o nome cleitin 23 anos e so um email?
+        //ele me retornaria tudo certo ate o ponto dos emails onde ele me retornaria um array com 3 itens
+        //mais so o primeiro seria o email e o resto seria definido como undefined (e eu sei que e estranho mais e o JS)
+        //DE FORMA RESUMIDA: 
+        //essa função esta muito limitada ja que não e possivel passar mais que 3 contatos nem receber so um sem ter os undefined
+        function user  (name, age, contact0, contact1, contact2) {
+        return {
+            name,
+            age,
+            contacts: [contact0, contact1, contact2]
+        }
+    }
+        //tentando resolver sem o rest
+        // ARGUMENTS
+        //esse metodo o retornara um erro mais por que?
+        //ele da um erro por que por mais que o arguments o retorne tudo como uma lista ele não e um array logo 
+        //ele não consegue usar o metodo slice RESUMINDO o prototype dele não e array e sim arguments logo ele não tem o metodo slice
+
+        function user0  (name, age, contact0, contact1, contact2) {
+        console.log(arguments) //com isso nos veriamos que o 4 email esta sendo passado mais não seria retornado
+        return {
+            name,
+            age,
+            contacts: arguments.slice(2) 
+            //o metodo slice ele retira os primeiros argumentos passado então por exemplo
+            //se tem uma lista de 1 a 5 [1, 2 ,3 ,4 ,5].slice(?) se voce usar o metodo slice(2) os numeros 1 e 2 serao retirados
+            //slice(3) o 1 2 e 3 seriam retirados e por ae vai
+        }
+    }
+    
+        //usando o metodo from ELE USA REFERENCIA que no caso vai ser o nosso arguments
+        //e dessa forma o args receberia os arrays de arguments por causa do metodo from e ae sim seria possivel usar o metodo slice
+        function user1  (name, age, contact0, contact1, contact2){
+        const args = Array.from(arguments)
+        return {
+            name,
+            age,
+            contacts: args.slice(2)
+        }
+    }
+        //e possivel ver como isso foi um inferno? o trampo que fazer deste geito eh?
+        //tudo pode ser simplificado com o rest
+        //da seguinte forma
+        //o que o rest faz? ele ENCAPSULA as informaçoes então se eu quero que apartir de age tudo seja encapsulado
+        //dentro de um array e so usar o metodo rest que sim ele chamado da mesma forma do spread mais dependendo do contexto
+        //ele vira um rest fazendo o efeito inverso 
+        
+
+        //RESUMINDO ja que eu não tenho contatos para serem espalhados com o spread então o JS entende isso e o transforma em um rest
+        //que basicamente vai encapsular os arugmentos passados
+
+        //ENTENDO O CONTEXTO:ja que eu não estou nem inserindo nem criando uma informação o contexto sinaliza que eh um rest fazendo o efeito de agrupamento
+        function newUser (name, age, ...contacts) {
+            return{
+                name,
+                age,
+                contacts
+            } 
+        }
+        //RESUMINDO ESSE CODIGO COM REST: apartir do segundo parametro todos os valores serão agrupados em um array chamado contacts
+        
+        
+        
+    </script>
+</body>
+</html>

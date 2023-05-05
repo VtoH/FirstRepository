@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+            name: "Vitin",
+            age: 14
+        }
+         //sem usar a desestruturação voce teria de fazer o seguinte no console:
+         //apresentar(person.name, person.agr) e ae ele retornaria o console log bunitinho como no exemplo abaixo
+        function apresentar (name, age) {
+            console.log(`oi! meu nome e ${name} e eu tenho ${age} anos`)
+        }
+
+        //e desta forma sem usar a desestruturação e como nos chamamos cada fruta
+        const frutas = ["banana", "morango", "manga"]
+        
+        const PrimeiraFruta = frutas[0]
+        const SegundaFruta = frutas[1]
+        const TerceiraFruta = frutas[2]
+
+
+        //agora usando esta estrutura de desestruturação {} apenas usando apresentar(person0) ou (person) voce obteria o mesmo resultado
+        //ja que a desestruturação identifica os parametros do objeto
+        const person0 = {
+            name: "vitin",
+            age: 14
+        }
+
+        function apresentar ({name, age}) {
+            console.log(`oi! meu nome e ${name} e eu tenho ${age} anos`)
+        }
+        //e dessa forma usando a desestruturação a gente consegue o mesmo resultado com apenas uma linha de codigo
+        const frutas0 = ["banana", "morango", "manga"]
+
+        const [PrimeiraFruta0, SegundaFruta0, TerceiraFruta0] = frutas0
+
+
+    </script>
+</body>
+</html>

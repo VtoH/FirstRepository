@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //sem usar o spread-opeator ficaria desta forma onde se por exemplo eu quisese adicionar orelha a 
+        //setence eu deveria fazer um ,partes[2]
+        const partes = [`ombro`, `joelho`, `orelha`]
+        const setence = [`cabeça`, partes[0], partes[1], `pé`]
+
+        //e dessa forma usando o spread-opeator tudo do array de partes1 seria jogado para setence1
+        const partes1 = [`ombro`, `joelho`, `orelha`]
+        const setence1 = [`cabeça`, ...partes1, `pé`]
+
+        //nesse usuario por exemplo ele suporta ate 3contatos mais c por exemplo o user parssar um quarto
+        //email? então voce teria que vir aqui e criar um contact 4 e piriri pororo
+        function createUser (name, age, contact1, contact2, contact3) {
+            return {
+            name ,
+            age,
+            contacts: [contact1, contact2, contact3]
+            }
+    }
+
+    //usando o spread-opeator ficaria dessa forma e seria retirado o limite de contatos que podem ser passados
+
+    function createUser0 (name, age, ...contact) {
+            return {
+            name ,
+            age,
+            contacts //como contacts ja vai ser um array não e necessario o : [contact1, contact2, contact3 ...]
+            }
+    }
+
+    //imaginando a seguinte situação em que existe esse array que voce não quer que ele seja alterado
+    //então voce faz um array que recebe seu valor e ai sim voce o muda ussando o push por exemplo
+    const ArrayImultavel = [`select`, `*`, `from`, `posts`]
+    //dessa forma:
+    const ArrayMultavel = ArrayImultavel
+    ArrayMultavel.push(`where id = 1`)
+    //o BIG problem e que no JS quando voce faz esse tipo de codigo o arrayMultavel so serve como um espelho ou
+    //um ponteiro do arrayImultavel logo quando adicionamos o where id = 1 nele o resultado que temos e que quando
+    //o arrayImultavel for acessado no console ele tambem tera o where id = 1 o que não e o que nos queremos
+    // então o que pode ser feito e o seguinte:
+    const ArrayMultavel0 = [...ArrayImultavel]
+    ArrayMultavel0.push(`where class = 1`)
+    //asim nos usamos o spread para CLONAR o array imultavel e asim conseguir fazer o que a gente queria desde de o 
+    // principio que era criar essa nova const com o valor da antiga e adicionar atraves do push essa nova informação
+    
+    </script>
+</body>
+</html>

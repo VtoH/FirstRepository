@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //recupenrando informaçoes deste array
+        const frutas = ['banana', 'morango', 'manga']
+        
+        // sem usara desestruturação
+        const firstIten = frutas [0]
+        const secondIten = frutas [1]
+        
+        //usando a desestruturação
+        const [firstIten0, secondIten0] = frutas
+        //o que delimita o indice e a virgula então se eu quiser apenas o segundo iten eu uso a desestruturação da seguinte forma
+        const [, secondIten1] = frutas
+        //e essa virgula faz ficar entendido que e o segundo iten do array
+        
+
+        //usando objetos dentro de arrays
+        const person = {name: 'cleitin', age: 31}
+        const person0 = {name: 'vitin', age: 21}
+        const person1 = {name: 'jorgin', age: 61}
+        
+        const amigos = [person, person0, person1]
+        // mais e se eu quiser por exemplo recuperar o name do person 0?
+
+        //sem usar a desustruturação
+        //ps esse zero não serve para nada
+        const secondPerson = amigos[1]
+        const name0 = secondPerson.name
+
+        //usando a desestruturação 
+        const [, { name }] = amigos
+        // e dessa forma a gente estaria acessando o segundo iten por causa da virgula e estariamos dessestruturando
+        //o segundo iten dentro de uma desestruturação acessando o name e tudo isso dentro da array de amigos
+
+        //usando agora um exemplo de um grafico representado dentro de um array onde os primeiros numeros
+        //são o X e os segundos são Y
+        const chart = [[1, 2], [3, 4], [5, 6]]
+        //e por exemplo eu quero recuperar o numero 4 que e o segundo indice que esta dentro do segundo indice
+        const [, [, y]] = chart
+        //e asim o y me retornaria o nuemro 4 
+        const [, , [, x]] = chart
+        //asim ele me retorna o numero 6
+        const [, , [z, w]] = chart
+        //e dessa forma ele retornaria o numero 5 e o 6
+        const [[A, B] , [C, D], [E, F]] = chart
+        //e dessa forma criamos uma letra para cada numero usando desestruturação
+
+
+    </script>
+</body>
+</html>

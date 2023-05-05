@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //sem usar o spread
+        const partes = [`ombro`, `joelho`]
+        const sentence = [`cabeça`, partes[0], partes[1], `pé`]
+        //o problema dessa forma e que se por exemplo eu adicionar orelha em partes para encaixala na setença 
+        //eu deveria ir la manualmente e acresentar o partes[2]
+
+        //usando o spread
+        const partes0 = [`ombro`, `joelho`]
+        const sentence0 = [`cabeça`, ...partes, `pé`]
+        //e dessa forma tudo de partes e acresentado na setence 
+
+        //o que o spread faz em um array?
+        //basicamente a mesma coisa com objetos, ele desencapsula os arrays retirando o [] e jogando as informaçoes
+        //dentro da setence
+        //RESUMINDO o spread retira as informaçoes do partes (meio que libertando elas) e recuperando dentro de sentence
+        
+
+        //ja vimos que desta forma o valor acresentado em multavel seria acresentado em imultavel 
+        //por que ele e uma referencia ao imultavel ENTÃO se voce usar um codigo não puro o que vai alterar 
+        //e o imultavel que eh referencia PRIMARIA do multavel
+        const imultavel = [`select`, `*`, `from`]
+        const multavel = imultavel
+        //e como resolver isso? clonando o imultavel com o spread da seguinte forma:
+        const imultavel0 = [`select`, `*`, `from`]
+        const multavel0 = [...imultavel]
+        
+    </script>
+</body>
+</html>

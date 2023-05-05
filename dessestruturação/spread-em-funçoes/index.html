@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //qual o problema dessa forma? exatamente meu lindo o encapsulamento( o encapsulamento e o [])
+        const ingredientes = [`ovo`, `presunto`]
+        const tempero = [`sal`, `pimenta`]
+        ingredientes.push(tempero)
+        
+        //resolvendo sem o spread
+        //como ja foi visto o que o apply faz e trabalhar com contexto e pegar a lista de ingredientes e jogar
+        //os ARGUMENTOS de tempero nele
+        const ingredientes0 = [`ovo`, `presunto`]
+        const tempero0 = [`sal`, `pimenta`]
+        ingredientes0.push.apply(ingredientes0, tempero0)
+        //como deixar esse codigo mais clean?(mais limpo)
+        //e simples e so usar o spread
+        const ingredientes1 = [`ovo`, `presunto`]
+        const tempero1 = [`sal`, `pimenta`]
+        ingredientes.push(...tempero1)
+        //e desta forma acontece a mesma coisa so que de forma bem mais limpa ja que a unica coisa que esta acontecendo
+        //e que o spread esta libertando o tempero1 retirando ele do encapsulamente que era o nosso problema
+    </script>
+</body>
+</html>

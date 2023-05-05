@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ignome os numeros nos nomes das constantes
+        //se for testar no console arume os numeros visse
+        const person = {
+            name: `Vitin`,
+            age: 15,
+        }
+        //antigamente voce faria asim ser usar a desestruturação
+        const name = person.name
+        const age = person.age
+        //usando a desestruturação voce simplificaria o codigo da seguinte forma
+        const { age0, name0 } = person
+        //mais e se eu não quiser que o nome da minha constante seja name? e simples 
+        const {name: batata } = person
+        //o que este codigo esta fazendo? ele esta acessando person pegando o nome e o name: batata esta
+        //fazendo com que o nome desta constante seja batata e não name
+        //outra coisa interesante e que se voce tentar acessar uma propriedade que não existe ela retorna um undefined e não um erro
+        const {bunito} = person// teste no console amigão
+        //outro exemplo:
+        const person1 = {
+            name: `Vitin`,
+            age: 15,
+            contact: {
+                email: `Vtohlf@gmail.com`
+            }
+        }
+        //e asim eu tenho acesso ao email que estava dentro de contact
+        const { age1, name1, contact: { email } } = person1
+        //O CONTACT N FOI DEFINIDO LOGO NOS NÃO CONSEGUIMOS O ACESSO A ELA
+        //se fosse como no exemplo a abaixo ai sim nos teriamos o acesso
+        const { age2, name2, contact} = person1
+        //como conseguir acesso ao email dentro dessa putaria toda?
+        const person2 = {
+            name: `Vitin`,
+            age: 15,
+            contact: {
+                foo: {
+                    bar: {
+                        E:{
+                            email: `Vtohlf@gmail.com`
+                        }
+                    }
+                }
+            }
+        }
+        //desta forma
+        const { age3, name3, contact: { foo:{ bar: { E:{ email0 } } } } } = person2
+        //DESTA FORMA NÃO TEMOS NEM O CONTACT NEM O FOO NEM O BAR NEM O E DEFINIDOS LOGO NÃO TEMOS ACESSO A ELES
+        //caso tente acessar uma variavel que não foi definida ele retornara um undefined
+
+
+    </script>
+</body>
+</html>

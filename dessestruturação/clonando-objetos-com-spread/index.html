@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //SPREAD O OPERADOR DA LIBERDADE:
+
+
+        //como ja foi visto na pasta spread-opeator o user vai ficar com as informaçoes de newUser mais por que?
+        //por que o JS trabalha com referencia logo o codigo const newUser = user esta dizendo que newUser e uma referencia de user
+        //e não que ele recebe os mesmo parametros de user
+        //SIMPLIFICANDO: modificar o newUser e como estar modificando o user
+        const user = {
+            name: `Cleitin`,
+            email: `contato@cleitin.com.br`
+        }
+
+        const newUser = user
+        newUser.email = `joao@zinho.com`
+        newUser.name = `joaoCaraDeMamão`
+        //resolvendo esse litle problem
+
+        //sem usar o spread e que tambem funciona
+        //O SPREAD NÃO ESTA AE PARA SUBSTITUIR ISSO AQUI O IMPORTANTE E ENTENDER A LOGICA DE AMBOS
+        const user0 = {
+            name: `Cleitin`,
+            email: `contato@cleitin.com.br`
+        }
+        // AQUI ELE CRIA UM NOVO OBJETO QUE RECEBE OS PARAMETROS DE USER POR ISSO ELE PERDE A REFERENCIA
+        const newUser0 = Object.assign({}, user) 
+        newUser.email = `joao@zinho.com`
+        newUser.name = `joaoCaraDeMamão`
+
+
+        //usando o spread
+        
+        const user1 = {
+            name: `Cleitin`,
+            email: `contato@cleitin.com.br`
+        }
+        //ENTENDA o que o ... (o spread) esta fazendo de forma resumida e retirar o encapsulamento ( os {} do user)
+        //fazendo com que o conteudo seja libertado e tornando o email e o nome simples propriedades que ae sim são modificadas no newUser
+        //mais o que e isso de forma definida no JS? o que o spread faz e criar um objeto com as mesmas informaçoes do user(incluindo as informaçoes)
+        const newUser1 = {...user1}
+        //logo a gente não tem mais a referencia a user e o que a gente tem e um objeto com os valores de user
+        newUser.email = `joao@zinho.com`
+        newUser.name = `joaoCaraDeMamão`
+        
+    </script>
+</body>
+</html>
